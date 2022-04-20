@@ -5,10 +5,9 @@ const Search = () => {
     const [term, setTerm] = useState('');
 
     useEffect(() => {
-        const search = async () => {
+        (async () => {
             await axios.get('blasl')
-        }
-        search();
+        })();
     }, [term]);
 
     return (
