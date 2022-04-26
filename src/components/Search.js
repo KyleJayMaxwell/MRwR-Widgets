@@ -22,14 +22,24 @@ const Search = () => {
     }, [term]);
 
     const renderedResults = results.map((result) => {
-        return <div key={result.pageid} className="item">
-            <div className="content">
-                <div className="header">
-                    {result.title}
+        return (
+            <div key={result.pageid} className="item">
+                <div className="right floated content">
+                    <a 
+                        className="ui button"
+                        href={`https://en.wikipedia.org?curid=${result.pageid}`}
+                    >
+                            Go
+                    </a>
                 </div>
-                <span dangerouslySetInnerHTML={{ __html: result.snippet }}></span>
+                <div className="content">
+                    <div className="header">
+                        {result.title}
+                    </div>
+                    <span dangerouslySetInnerHTML={{ __html: result.snippet }}></span>
+                </div>
             </div>
-        </div>
+        );
     });
 
     return (
